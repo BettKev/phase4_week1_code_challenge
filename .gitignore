@@ -1,0 +1,26 @@
+# Python-related files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+*.env
+
+# IDE files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Migrations
+migrations/
+
+node_modules
+Pipfile.lock
+instance
