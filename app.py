@@ -168,7 +168,7 @@ def delete_account():
 
     return jsonify({"message": "User account deleted successfully!"}), 200
 
-# Routes for posts (unchanged)
+# Routes for posts
 @app.route('/posts', methods=['POST'])
 @jwt_required()
 def create_post():
