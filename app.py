@@ -8,13 +8,16 @@ from flask_jwt_extended import (
     get_jwt,
 )
 from models import db, User, Post, TokenBlacklist
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Change this to a secure key in production
+# Configure token expiration
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)  # Access token valid for 1 hour
+app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(days=30)  # Refresh token valid for 30 days
 
 db.init_app(app)
 jwt = JWTManager(app)
