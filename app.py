@@ -28,6 +28,7 @@ def index():
     return "Welcome to the Flask App!"
 
 # Route to register a user
+#Add email confirmation functionality
 @app.route('/register', methods=['POST'])
 def register_user():
     """Route to create a new user."""
